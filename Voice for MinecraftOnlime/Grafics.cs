@@ -25,7 +25,7 @@ namespace Voice_for_MinecraftOnlime
         {
             return "Баланс на " + DateTime.Now + " равен: " + Balance.get + " tokens";
         }
-        public static void Table(int width, int height, int x = 0, int y = 0)
+        public static void Rectangle(int width, int height, int x = 0, int y = 0)
         {
             Console.SetCursorPosition(x, y);
             for (int i = 0; i < height; i++)
@@ -80,13 +80,13 @@ namespace Voice_for_MinecraftOnlime
                 Console.WriteLine(lang);
             }
         }
-        public static int TextCentered<String>(int pos, List<String> list, int size_block = 46) // пишет текст по центру блока
+        public static int TextCentered<String>(int number, List<String> list, int size_block = 46) // пишет текст по центру блока
         {
-            int centre = (size_block - Convert.ToString(list[pos]).Length) / 2 + 1;
+            int centre = (size_block - Convert.ToString(list[number]).Length) / 2 + 1;
 
             return centre;
         }
-        public static int TextCentered(int pos, string str, int size_block = 46) // пишет текст по центру блока
+        public static int TextCentered(string str, int size_block = 46) // пишет текст по центру блока
         {
             int centre = (size_block - str.Length) / 2 + 1;
 
@@ -127,7 +127,7 @@ namespace Voice_for_MinecraftOnlime
             }
         }
 
-        public static void DrawPreis(int x, int offset = 0, string text = " ")
+        public static void DrawPreis(int x, int offset, string text = " ")
         {
             bool key = true;
 

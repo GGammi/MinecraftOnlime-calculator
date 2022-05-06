@@ -12,8 +12,8 @@ namespace Voice_for_MinecraftOnlime
         {
             Controls.screen_key = 1;
 
-            Grafics.Table(46, 3);
-            Grafics.Table(46, 5, 0, 4);
+            Grafics.Rectangle(46, 3);
+            Grafics.Rectangle(46, 5, 0, 4);
             do
             {
                 Console.SetCursorPosition(15, 1);
@@ -31,8 +31,8 @@ namespace Voice_for_MinecraftOnlime
         {
             Controls.screen_key = 2;
 
-            Grafics.Table(46, 3);
-            Grafics.Table(46, 3, 0, 4);
+            Grafics.Rectangle(46, 3);
+            Grafics.Rectangle(46, 3, 0, 4);
 
             Console.SetCursorPosition(Grafics.TextCentered(Profile.lang_id, Text.entering_nickname), 1);
             Console.WriteLine(Text.entering_nickname[Profile.lang_id]);
@@ -46,8 +46,8 @@ namespace Voice_for_MinecraftOnlime
         {
             Controls.screen_key = 3;
 
-            Grafics.Table(46, 3);
-            Grafics.Table(46, 11, 0, 4);
+            Grafics.Rectangle(46, 3);
+            Grafics.Rectangle(46, 11, 0, 4);
 
             Console.SetCursorPosition(Grafics.TextCentered(Profile.lang_id, Text.status_selection), 1);
             Console.WriteLine(Text.status_selection[Profile.lang_id]);
@@ -62,8 +62,8 @@ namespace Voice_for_MinecraftOnlime
         {
             Controls.screen_key = 4;
 
-            Grafics.Table(46, 3);
-            Grafics.Table(46, 3, 0, 4);
+            Grafics.Rectangle(46, 3);
+            Grafics.Rectangle(46, 3, 0, 4);
 
             Console.SetCursorPosition(Grafics.TextCentered(Profile.lang_id, Text.entering_balance), 1);
             Console.WriteLine(Text.entering_balance[Profile.lang_id]);
@@ -75,23 +75,27 @@ namespace Voice_for_MinecraftOnlime
 
         public static void MainScreen()
         {
+            string text;
+            int tokens;
+            int j = Profile.stat_id;
+
             Controls.screen_key = 5;
 
-            Grafics.Table(68, 3);
-            Grafics.Table(68, 3, 0, 3);
-            Grafics.Table(68, 3, 0, 23);
-            Grafics.Table(68, 3, 0, 27);
-            Grafics.Table(68, 3, 0, 30);
+            Grafics.Rectangle(68, 3);
+            Grafics.Rectangle(68, 3, 0, 3);
+            Grafics.Rectangle(68, 3, 0, 23);
+            Grafics.Rectangle(68, 3, 0, 27);
+            Grafics.Rectangle(68, 3, 0, 30);
 
             Grafics.Line(21, 30, 43, 30);
             Grafics.Line(21, 32, 43, 32);
             Grafics.Line(21, 30, 21, 32);
             Grafics.Line(43, 30, 43, 32);
 
-            string str = Text.greeting[Profile.lang_id] + ", " + Profile.nickname + '!';
-            Console.SetCursorPosition(Grafics.TextCentered(Profile.lang_id, str, 68), 1);
-            Console.WriteLine(str);
-            Console.SetCursorPosition(Grafics.TextCentered(Profile.lang_id, Grafics.TokensToDay(), 68), 4);
+            text = Text.greeting[Profile.lang_id] + ", " + Profile.nickname + '!';
+            Console.SetCursorPosition(Grafics.TextCentered(text, 68), 1);
+            Console.WriteLine(text);
+            Console.SetCursorPosition(Grafics.TextCentered(Grafics.TokensToDay(), 68), 4);
             Console.WriteLine(Grafics.TokensToDay());
 
             Grafics.Line(0, 7, 67, 7);
@@ -127,25 +131,22 @@ namespace Voice_for_MinecraftOnlime
                 Console.Write(Text.status[i + 1]);
             }
 
-            int tokens;
             if (Profile.stat_id == 0)
             {
-                tokens = Text.Preis[Profile.stat_id];
-                str = "После покупки " + Text.status[Profile.stat_id + 1] + " Kit " + '-' + tokens + " tokens";
+                tokens = Text.Preis[Profile.stat_id + 1];
+                text = "После покупки " + Text.status[Profile.stat_id + 1] + " Kit " + '-' + tokens + " tokens";
             }
             else if (Profile.stat_id != 8)
             {
-                tokens = Text.Preis[Profile.stat_id] - Text.Preis[Profile.stat_id - 1];
-                str = "После покупки " + Text.status[Profile.stat_id + 1] + " Kit " + '-' + tokens + " tokens";
+                tokens = Text.Preis[Profile.stat_id + 1] - Text.Preis[Profile.stat_id];
+                text = "После покупки " + Text.status[Profile.stat_id + 1] + " Kit " + '-' + tokens + " tokens";
             }
             else
             {
-                str = "Вы преобрели максимальный статус!";
+                text = "Вы преобрели максимальный статус!";
             }
-            Console.SetCursorPosition(Grafics.TextCentered(Profile.lang_id, str, 50) + 19, 8);
-            Console.Write(str);
-
-            int j = Profile.stat_id;
+            Console.SetCursorPosition(Grafics.TextCentered(text, 50) + 19, 8);
+            Console.Write(text);
 
             Grafics.DrawPreis(13, j++, "ОК");
             Grafics.DrawPreis(20, j++);
@@ -154,7 +155,7 @@ namespace Voice_for_MinecraftOnlime
             Grafics.DrawPreis(41, j++);
             Grafics.DrawPreis(48, j++);
             Grafics.DrawPreis(55, j++);
-            Grafics.DrawPreis(62, j++);
+            Grafics.DrawPreis(62, j);
 
             Console.ReadKey();
         }

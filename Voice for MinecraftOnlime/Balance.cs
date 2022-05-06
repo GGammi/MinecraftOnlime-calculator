@@ -8,7 +8,7 @@ namespace Voice_for_MinecraftOnlime
 {
     class Balance
     {
-        static int tokens;
+        static int tokens = 0;
 
         public static int get
         {
