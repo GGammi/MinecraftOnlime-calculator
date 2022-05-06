@@ -76,8 +76,9 @@ namespace Voice_for_MinecraftOnlime
         public static void MainScreen()
         {
             string text;
-            int tokens;
+            int tokens = 0;
             int j = Profile.stat_id;
+            int days;
 
             Controls.screen_key = 5;
 
@@ -156,6 +157,20 @@ namespace Voice_for_MinecraftOnlime
             Grafics.DrawPreis(48, j++);
             Grafics.DrawPreis(55, j++);
             Grafics.DrawPreis(62, j);
+
+            if (Balance.get > tokens)
+            {
+                text = "Вы можете купить " + Text.status[Profile.stat_id + 1] + " Kit ";
+            }
+            else
+            {
+                tokens = tokens - Balance.get;
+                days = (tokens + 2 - 1) / 2;
+
+                text = "До " + Text.status[Profile.stat_id + 1] + " Kit " + days + ' ' + Text.DayRu(days) + " или же " + tokens + " токена";
+            }
+            Console.SetCursorPosition(Grafics.TextCentered(text, 68), 24);
+            Console.Write(text);
 
             Console.ReadKey();
         }
