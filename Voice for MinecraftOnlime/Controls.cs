@@ -16,23 +16,41 @@ namespace Voice_for_MinecraftOnlime
         public static int cursor_position;
         public static int screen_key;
 
-        public static bool control(int upper_bound, int lower_bound)
+        public static bool control(int upper_bound, int lower_bound, string direction = "vertically")
         {
             ConsoleKeyInfo key = Console.ReadKey(true);
 
-            switch (key.Key)
+            if (direction == "vertically")
             {
-                case ConsoleKey.DownArrow:
-                    cursor_position++;
-                    break;
-                case ConsoleKey.UpArrow:
-                    cursor_position--;
-                    break;
-                case ConsoleKey.Enter:
-                    Enter();
-                    return false;
+                switch (key.Key)
+                {
+                    case ConsoleKey.DownArrow:
+                        cursor_position++;
+                        break;
+                    case ConsoleKey.UpArrow:
+                        cursor_position--;
+                        break;
+                    case ConsoleKey.Enter:
+                        Enter();
+                        return false;
+                }
             }
-
+            else if (direction == "horizontally")
+            {
+                switch (key.Key)
+                {
+                    case ConsoleKey.RightArrow:
+                        cursor_position++;
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        cursor_position--;
+                        break;
+                    case ConsoleKey.Enter:
+                        Enter();
+                        return false;
+                }
+            }
+           
             if (cursor_position == upper_bound - 1)
             {
                 cursor_position = lower_bound;

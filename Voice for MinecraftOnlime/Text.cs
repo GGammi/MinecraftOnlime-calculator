@@ -105,5 +105,34 @@ namespace Voice_for_MinecraftOnlime
             }
             return "NONE";
         }
+        public static string TokenRu(int number = 1)
+        {
+            if (number > 20 && number < 100) // 21 -99
+            {
+                number = int.Parse(number.ToString().Remove(0, 1));
+            }
+            else if (number > 99 && number < 1000) // 100 - 999
+            {
+                number = int.Parse(number.ToString().Remove(0, 2));
+            }
+            else if (number > 999 && number < 10000) // 1000 - 9999
+            {
+                number = int.Parse(number.ToString().Remove(0, 3));
+            }
+
+            if (number == 1)
+            {
+                return "токен";
+            }
+            else if (number >= 2 && number <= 4)
+            {
+                return "токена";
+            }
+            else if (number >= 5 && number <= 20 || number == 0)
+            {
+                return "токенов";
+            }
+            return "NONE";
+        }
     }
 }

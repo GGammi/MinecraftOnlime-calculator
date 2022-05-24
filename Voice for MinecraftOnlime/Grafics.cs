@@ -23,7 +23,7 @@ namespace Voice_for_MinecraftOnlime
 
         public static string TokensToDay()
         {
-            return "Баланс на " + DateTime.Now + " равен: " + Balance.get + " tokens";
+            return "Баланс на " + DateTime.Now + " равен: " + Balance.get + ' ' + Text.TokenRu(Balance.get);
         }
         public static void Rectangle(int width, int height, int x = 0, int y = 0)
         {
@@ -64,20 +64,36 @@ namespace Voice_for_MinecraftOnlime
                 }
             }
         }
-        public static void SelectItem<T>(int start_position, int end_position, List<T> list) // рисует курсор
+        public static void SelectItem<T>(int start_position, int end_position, List<T> list, string direction = "vertically") // рисует курсор
         {
 
             foreach (var lang in list)
             {
-                for (int j = start_position; j <= end_position; j++)
+                if (direction == "vertically")
                 {
-                    Console.SetCursorPosition(18, j);
-                    Console.Write(' ');
+                    for (int j = start_position; j <= end_position; j++)
+                    {
+                        Console.SetCursorPosition(18, j);
+                        Console.Write(' ');
+                    }
+                    Console.SetCursorPosition(18, Controls.cursor_position);
+                    Console.Write('>');
+                    Console.SetCursorPosition(20, start_position++);
+                    Console.WriteLine(lang);
                 }
-                Console.SetCursorPosition(18, Controls.cursor_position);
-                Console.Write('>');
-                Console.SetCursorPosition(20, start_position++);
-                Console.WriteLine(lang);
+                else if (direction == "horizontally") // переписать
+                {
+                    for (int j = start_position; j <= end_position; j++)
+                    {
+                        Console.SetCursorPosition(j, 28);
+                        Console.Write(' ');
+                    }
+                    Console.SetCursorPosition(Controls.cursor_position, 28);
+                    Console.Write('>');
+                    Console.SetCursorPosition(start_position++ + 2, 28);
+                    Console.WriteLine(lang);
+                }
+
             }
         }
         public static int TextCentered<String>(int number, List<String> list, int size_block = 46) // пишет текст по центру блока

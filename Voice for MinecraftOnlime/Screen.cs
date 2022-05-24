@@ -88,10 +88,10 @@ namespace Voice_for_MinecraftOnlime
             Grafics.Rectangle(68, 3, 0, 27);
             Grafics.Rectangle(68, 3, 0, 30);
 
-            Grafics.Line(21, 30, 43, 30);
-            Grafics.Line(21, 32, 43, 32);
-            Grafics.Line(21, 30, 21, 32);
-            Grafics.Line(43, 30, 43, 32);
+            Grafics.Line(22, 30, 44, 30);
+            Grafics.Line(22, 32, 44, 32);
+            Grafics.Line(22, 30, 22, 32);
+            Grafics.Line(44, 30, 44, 32);
 
             text = Text.greeting[Profile.lang_id] + ", " + Profile.nickname + '!';
             Console.SetCursorPosition(Grafics.TextCentered(text, 68), 1);
@@ -135,12 +135,12 @@ namespace Voice_for_MinecraftOnlime
             if (Profile.stat_id == 0)
             {
                 tokens = Text.Preis[Profile.stat_id + 1];
-                text = "После покупки " + Text.status[Profile.stat_id + 1] + " Kit " + '-' + tokens + " tokens";
+                text = "После покупки " + Text.status[Profile.stat_id + 1] + " Kit " + '-' + tokens + ' ' + Text.TokenRu(tokens);
             }
             else if (Profile.stat_id != 8)
             {
                 tokens = Text.Preis[Profile.stat_id + 1] - Text.Preis[Profile.stat_id];
-                text = "После покупки " + Text.status[Profile.stat_id + 1] + " Kit " + '-' + tokens + " tokens";
+                text = "После покупки " + Text.status[Profile.stat_id + 1] + " Kit " + '-' + tokens + ' ' + Text.TokenRu(tokens);
             }
             else
             {
@@ -167,10 +167,31 @@ namespace Voice_for_MinecraftOnlime
                 tokens = tokens - Balance.get;
                 days = (tokens + 2 - 1) / 2;
 
-                text = "До " + Text.status[Profile.stat_id + 1] + " Kit " + days + ' ' + Text.DayRu(days) + " или же " + tokens + " токена";
+                text = "До " + Text.status[Profile.stat_id + 1] + " Kit " + days + ' ' + Text.DayRu(days) + " или же " + tokens + ' ' + Text.TokenRu(tokens);
             }
             Console.SetCursorPosition(Grafics.TextCentered(text, 68), 24);
             Console.Write(text);
+
+            Console.SetCursorPosition(9, 28);
+            Console.Write("обновить баланс");
+
+            Console.SetCursorPosition(49, 28);
+            Console.Write("настройки");
+
+            Console.SetCursorPosition(Grafics.TextCentered("влево  <", 21), 31);
+            Console.Write("влево  <");
+
+            Console.SetCursorPosition(Grafics.TextCentered("вправо  >", 23) + 21, 31);
+            Console.Write("вправо  >");
+
+            Console.SetCursorPosition(Grafics.TextCentered("ок  Enter", 21) + 45, 31);
+            Console.Write("ок  Enter");
+
+            do
+            {
+                Grafics.SelectItem(1, 2, Text.status, "horizontally");
+            } while (Controls.control(5, 13));
+            Console.Clear();
 
             Console.ReadKey();
         }
