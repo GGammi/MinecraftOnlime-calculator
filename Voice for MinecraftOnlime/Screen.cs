@@ -10,7 +10,10 @@ namespace Voice_for_MinecraftOnlime
     {
         public static void LanguageSelection()
         {
+            Console.Clear();
+
             Controls.screen_key = 1;
+            Controls.cursor_position = 6;
 
             Grafics.Rectangle(46, 3);
             Grafics.Rectangle(46, 5, 0, 4);
@@ -24,11 +27,12 @@ namespace Voice_for_MinecraftOnlime
 
                 Grafics.SelectItem(5, 7, Text.language);
             } while (Controls.control(5, 7));
-            Console.Clear();
         }
 
         public static void EnteringNickname()
         {
+            Console.Clear();
+
             Controls.screen_key = 2;
 
             Grafics.Rectangle(46, 3);
@@ -39,11 +43,13 @@ namespace Voice_for_MinecraftOnlime
 
             Console.SetCursorPosition(22, 5);
             Profile.nickname = Console.ReadLine();
-            Console.Clear();
         }
 
         public static void StatusSelection()
         {
+            Console.Clear();
+
+            Controls.cursor_position = 6;
             Controls.screen_key = 3;
 
             Grafics.Rectangle(46, 3);
@@ -55,11 +61,12 @@ namespace Voice_for_MinecraftOnlime
             {
                 Grafics.SelectItem(5, 13, Text.status);
             } while (Controls.control(5, 13));
-            Console.Clear();
         }
 
         public static void EnteringBalance()
         {
+            Console.Clear();
+
             Controls.screen_key = 4;
 
             Grafics.Rectangle(46, 3);
@@ -70,28 +77,27 @@ namespace Voice_for_MinecraftOnlime
 
             Console.SetCursorPosition(22, 5);
             Balance.set = Convert.ToInt32(Console.ReadLine());
-            Console.Clear();
         }
 
         public static void MainScreen()
         {
+            Console.Clear();
+
             string text;
             int tokens = 0;
             int j = Profile.stat_id;
             int days;
 
             Controls.screen_key = 5;
+            Controls.cursor_position = 0;
+
+            Grafics.BasicScreen("horizontally");
 
             Grafics.Rectangle(68, 3);
             Grafics.Rectangle(68, 3, 0, 3);
             Grafics.Rectangle(68, 3, 0, 23);
             Grafics.Rectangle(68, 3, 0, 27);
-            Grafics.Rectangle(68, 3, 0, 30);
 
-            Grafics.Line(22, 30, 44, 30);
-            Grafics.Line(22, 32, 44, 32);
-            Grafics.Line(22, 30, 22, 32);
-            Grafics.Line(44, 30, 44, 32);
 
             text = Text.greeting[Profile.lang_id] + ", " + Profile.nickname + '!';
             Console.SetCursorPosition(Grafics.TextCentered(text, 68), 1);
@@ -178,22 +184,31 @@ namespace Voice_for_MinecraftOnlime
             Console.SetCursorPosition(49, 28);
             Console.Write("настройки");
 
-            Console.SetCursorPosition(Grafics.TextCentered("влево  <", 21), 31);
-            Console.Write("влево  <");
+            do
+            {
+                Grafics.SelectItem(0, 1, Text.status, "horizontally");
+            } while (Controls.control(0, 1, "horizontally"));
+        }
 
-            Console.SetCursorPosition(Grafics.TextCentered("вправо  >", 23) + 21, 31);
-            Console.Write("вправо  >");
+        public static void SettingsMenu()
+        {
+            Console.Clear();
 
-            Console.SetCursorPosition(Grafics.TextCentered("ок  Enter", 21) + 45, 31);
-            Console.Write("ок  Enter");
+            Controls.screen_key = 6;
+
+            Controls.cursor_position = 16;
+            
+            Grafics.Rectangle(68, 3);
+            Grafics.Rectangle(68, 27, 0, 3);
+            Grafics.BasicScreen();
+
+            Console.SetCursorPosition(Grafics.TextCentered("Настройки", 68), 1);
+            Console.Write("Настройки");
 
             do
             {
-                Grafics.SelectItem(1, 2, Text.status, "horizontally");
-            } while (Controls.control(5, 13));
-            Console.Clear();
-
-            Console.ReadKey();
+                Grafics.SelectItem(14, 19, Text.SettingsRu, "vertically", 30);
+            } while (Controls.control(14, 19));
         }
     }
 }

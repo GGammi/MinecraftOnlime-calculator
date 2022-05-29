@@ -13,12 +13,33 @@ namespace Voice_for_MinecraftOnlime
             //Balance.set = 140;
             //Grafics.Logo();
             //Grafics.TokensToDay();
-            Screen.LanguageSelection();
-            Screen.EnteringNickname();
-            Screen.StatusSelection();
-            Screen.EnteringBalance();
-            Screen.MainScreen();
-            Console.ReadKey();
+            do
+            {
+                Screen.LanguageSelection();
+                Screen.EnteringNickname();
+                Screen.StatusSelection();
+                Screen.EnteringBalance();
+                do
+                {
+                    Screen.MainScreen();
+                    switch (Controls.cursor_position)
+                    {
+                        case 0:
+                            Screen.EnteringBalance();
+                            break;
+                        case 1:
+                            do
+                            {
+                                Screen.SettingsMenu();
+                            } while (Controls.back);
+                            Controls.back = true;
+                            break;
+                    }
+                } while (Controls.reset);
+                Controls.reset = true;
+
+            } while (true);
+
         }
     }
 }

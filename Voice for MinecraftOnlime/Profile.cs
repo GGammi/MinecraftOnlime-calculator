@@ -11,8 +11,8 @@ namespace Voice_for_MinecraftOnlime
         Profile()
         {
             lang_id = 0;
-            stat_id = 1;
-            nickname = "plaeyr";
+            stat_id = 0;
+            nickname = "player";
         }
 
         public static int lang_id;

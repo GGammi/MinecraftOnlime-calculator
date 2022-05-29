@@ -15,6 +15,8 @@ namespace Voice_for_MinecraftOnlime
 
         public static int cursor_position;
         public static int screen_key;
+        public static bool reset = true;
+        public static bool back = true;
 
         public static bool control(int upper_bound, int lower_bound, string direction = "vertically")
         {
@@ -72,6 +74,30 @@ namespace Voice_for_MinecraftOnlime
                     break;
                 case 3:
                     Profile.stat_id = cursor_position - 5;
+                    break;
+                case 6:
+                    switch (cursor_position)
+                    {
+                        case 14:
+                            Screen.LanguageSelection();
+                            break;
+                        case 15:
+                            Screen.EnteringNickname();
+                            break;
+                        case 16:
+                            Screen.StatusSelection();
+                            break;
+                        case 17:
+                            // об авторе
+                            break;
+                        case 18:
+                            back = false;
+                            reset = false;
+                            break;
+                        case 19:
+                            back = false;
+                            break;
+                    }
                     break;
             }
         }

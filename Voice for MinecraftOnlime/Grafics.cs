@@ -64,7 +64,7 @@ namespace Voice_for_MinecraftOnlime
                 }
             }
         }
-        public static void SelectItem<T>(int start_position, int end_position, List<T> list, string direction = "vertically") // рисует курсор
+        public static void SelectItem<T>(int start_position, int end_position, List<T> list, string direction = "vertically", int start_line = 18) // рисует курсор
         {
 
             foreach (var lang in list)
@@ -73,25 +73,33 @@ namespace Voice_for_MinecraftOnlime
                 {
                     for (int j = start_position; j <= end_position; j++)
                     {
-                        Console.SetCursorPosition(18, j);
+                        Console.SetCursorPosition(start_line, j);
                         Console.Write(' ');
                     }
-                    Console.SetCursorPosition(18, Controls.cursor_position);
+                    Console.SetCursorPosition(start_line, Controls.cursor_position);
                     Console.Write('>');
-                    Console.SetCursorPosition(20, start_position++);
+                    Console.SetCursorPosition(start_line + 2, start_position++);
                     Console.WriteLine(lang);
                 }
                 else if (direction == "horizontally") // переписать
                 {
-                    for (int j = start_position; j <= end_position; j++)
+                    Console.SetCursorPosition(7, 28);
+                    Console.Write(' ');
+                    Console.SetCursorPosition(47, 28);
+                    Console.Write(' ');
+
+                    switch (Controls.cursor_position)
                     {
-                        Console.SetCursorPosition(j, 28);
-                        Console.Write(' ');
+                        case 0:
+                            Console.SetCursorPosition(7, 28);
+                            Console.Write('>');
+                            break;
+                        case 1:
+                            Console.SetCursorPosition(47, 28);
+                            Console.Write('>');
+                            break;
                     }
-                    Console.SetCursorPosition(Controls.cursor_position, 28);
-                    Console.Write('>');
-                    Console.SetCursorPosition(start_position++ + 2, 28);
-                    Console.WriteLine(lang);
+
                 }
 
             }
@@ -165,6 +173,39 @@ namespace Voice_for_MinecraftOnlime
                 {
                     Console.Write(Text.Preis[i + 1] - Text.Preis[offset]);
                 }
+            }
+        }
+
+        public static void BasicScreen(string direction = "vertically")
+        {
+            Grafics.Rectangle(68, 3, 0, 30);
+
+            Grafics.Line(22, 30, 44, 30);
+            Grafics.Line(22, 32, 44, 32);
+            Grafics.Line(22, 30, 22, 32);
+            Grafics.Line(44, 30, 44, 32);
+
+            if (direction == "vertically")
+            {
+                Console.SetCursorPosition(Grafics.TextCentered("влево  <", 21), 31);
+                Console.Write("вверх ↑");
+
+                Console.SetCursorPosition(Grafics.TextCentered("вправо  >", 23) + 21, 31);
+                Console.Write("вниз  ↓");
+
+                Console.SetCursorPosition(Grafics.TextCentered("ок  Enter", 21) + 45, 31);
+                Console.Write("ок  Enter");
+            }
+            else if (direction == "horizontally")
+            {
+                Console.SetCursorPosition(Grafics.TextCentered("влево  <", 21), 31);
+                Console.Write("влево  ←");
+
+                Console.SetCursorPosition(Grafics.TextCentered("вправо  >", 23) + 21, 31);
+                Console.Write("вправо  →");
+
+                Console.SetCursorPosition(Grafics.TextCentered("ок  Enter", 21) + 45, 31);
+                Console.Write("ок  Enter");
             }
         }
     }

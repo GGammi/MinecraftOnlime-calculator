@@ -134,5 +134,15 @@ namespace Voice_for_MinecraftOnlime
             }
             return "NONE";
         }
+
+        public static List<string> SettingsRu = new List<string>()
+        {
+            "Язык",
+            "Ник",
+            "Статус",
+            "Об авторе",
+            "Сбросить все",
+            "Назад"
+        };
     }
 }
