@@ -70,10 +70,10 @@ namespace Voice_for_MinecraftOnlime
             switch (screen_key)
             {
                 case 1:
-                    Profile.lang_id = cursor_position - 5;
+                    Profile.lang_id = cursor_position - 14;
                     break;
                 case 3:
-                    Profile.stat_id = cursor_position - 5;
+                    Profile.stat_id = cursor_position - 12;
                     break;
                 case 6:
                     switch (cursor_position)

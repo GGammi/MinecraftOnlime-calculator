@@ -13,20 +13,19 @@ namespace Voice_for_MinecraftOnlime
             Console.Clear();
 
             Controls.screen_key = 1;
-            Controls.cursor_position = 6;
+            Controls.cursor_position = 14;
 
-            Grafics.Rectangle(46, 3);
-            Grafics.Rectangle(46, 5, 0, 4);
+            Grafics.BasicScreen();
             do
             {
-                Console.SetCursorPosition(15, 1);
-                Console.Write("                  ");
+                Console.SetCursorPosition(Grafics.TextCentered("                    ", 68), 1);
+                Console.Write("                    ");
 
-                Console.SetCursorPosition(Grafics.TextCentered(Controls.cursor_position - 5, Text.language_selection), 1);
-                Console.WriteLine(Text.language_selection[Controls.cursor_position - 5]);
+                Console.SetCursorPosition(Grafics.TextCentered(Controls.cursor_position - 14, Text.language_selection, 68), 1);
+                Console.WriteLine(Text.language_selection[Controls.cursor_position - 14]);
 
-                Grafics.SelectItem(5, 7, Text.language);
-            } while (Controls.control(5, 7));
+                Grafics.SelectItem(14, 16, Text.language, "vertically", 29);
+            } while (Controls.control(14, 16));
         }
 
         public static void EnteringNickname()
@@ -35,13 +34,12 @@ namespace Voice_for_MinecraftOnlime
 
             Controls.screen_key = 2;
 
-            Grafics.Rectangle(46, 3);
-            Grafics.Rectangle(46, 3, 0, 4);
+            Grafics.BasicScreen();
 
-            Console.SetCursorPosition(Grafics.TextCentered(Profile.lang_id, Text.entering_nickname), 1);
+            Console.SetCursorPosition(Grafics.TextCentered(Profile.lang_id, Text.entering_nickname, 68), 1);
             Console.WriteLine(Text.entering_nickname[Profile.lang_id]);
 
-            Console.SetCursorPosition(22, 5);
+            Console.SetCursorPosition(30, 16);
             Profile.nickname = Console.ReadLine();
         }
 
@@ -49,18 +47,17 @@ namespace Voice_for_MinecraftOnlime
         {
             Console.Clear();
 
-            Controls.cursor_position = 6;
+            Controls.cursor_position = 12;
             Controls.screen_key = 3;
 
-            Grafics.Rectangle(46, 3);
-            Grafics.Rectangle(46, 11, 0, 4);
+            Grafics.BasicScreen();
 
-            Console.SetCursorPosition(Grafics.TextCentered(Profile.lang_id, Text.status_selection), 1);
+            Console.SetCursorPosition(Grafics.TextCentered(Profile.lang_id, Text.status_selection, 68), 1);
             Console.WriteLine(Text.status_selection[Profile.lang_id]);
             do
             {
-                Grafics.SelectItem(5, 13, Text.status);
-            } while (Controls.control(5, 13));
+                Grafics.SelectItem(12, 20, Text.status, "vertically", 29);
+            } while (Controls.control(12, 20));
         }
 
         public static void EnteringBalance()
@@ -69,13 +66,12 @@ namespace Voice_for_MinecraftOnlime
 
             Controls.screen_key = 4;
 
-            Grafics.Rectangle(46, 3);
-            Grafics.Rectangle(46, 3, 0, 4);
+            Grafics.BasicScreen();
 
-            Console.SetCursorPosition(Grafics.TextCentered(Profile.lang_id, Text.entering_balance), 1);
+            Console.SetCursorPosition(Grafics.TextCentered(Profile.lang_id, Text.entering_balance, 68), 1);
             Console.WriteLine(Text.entering_balance[Profile.lang_id]);
 
-            Console.SetCursorPosition(22, 5);
+            Console.SetCursorPosition(30, 16);
             Balance.set = Convert.ToInt32(Console.ReadLine());
         }
 
@@ -91,7 +87,7 @@ namespace Voice_for_MinecraftOnlime
             Controls.screen_key = 5;
             Controls.cursor_position = 0;
 
-            Grafics.BasicScreen("horizontally");
+            Grafics.BasicScreen("horizontally", false);
 
             Grafics.Rectangle(68, 3);
             Grafics.Rectangle(68, 3, 0, 3);

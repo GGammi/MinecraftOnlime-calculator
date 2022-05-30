@@ -176,8 +176,14 @@ namespace Voice_for_MinecraftOnlime
             }
         }
 
-        public static void BasicScreen(string direction = "vertically")
+        public static void BasicScreen(string direction = "vertically", bool frame = true)
         {
+            if (frame)
+            {
+                Grafics.Rectangle(68, 3);
+                Grafics.Rectangle(68, 27, 0, 3);
+            }
+
             Grafics.Rectangle(68, 3, 0, 30);
 
             Grafics.Line(22, 30, 44, 30);
