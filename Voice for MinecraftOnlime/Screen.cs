@@ -34,7 +34,7 @@ namespace Voice_for_MinecraftOnlime
 
             Controls.screen_key = 2;
 
-            Grafics.BasicScreen();
+            Grafics.BasicScreen("text");
 
             Console.SetCursorPosition(Grafics.TextCentered(Profile.lang_id, Text.entering_nickname, 68), 1);
             Console.WriteLine(Text.entering_nickname[Profile.lang_id]);
@@ -66,7 +66,7 @@ namespace Voice_for_MinecraftOnlime
 
             Controls.screen_key = 4;
 
-            Grafics.BasicScreen();
+            Grafics.BasicScreen("text");
 
             Console.SetCursorPosition(Grafics.TextCentered(Profile.lang_id, Text.entering_balance, 68), 1);
             Console.WriteLine(Text.entering_balance[Profile.lang_id]);
@@ -205,6 +205,40 @@ namespace Voice_for_MinecraftOnlime
             {
                 Grafics.SelectItem(14, 19, Text.SettingsRu, "vertically", 30);
             } while (Controls.control(14, 19));
+        }
+
+        public static void StartScreen()
+        {
+            Grafics.BasicScreen("text");
+
+            Console.SetCursorPosition(Grafics.TextCentered("MCONLINE", 68), 1);
+            Console.WriteLine("MC_ONLINE");
+
+            Console.SetCursorPosition(Grafics.TextCentered("MINECRAFT ONLINE", 68), 13);
+            Console.WriteLine("MINECRAFT ONLINE");
+            Console.SetCursorPosition(Grafics.TextCentered("calculator", 68), 14);
+            Console.WriteLine("calculator");
+            Console.SetCursorPosition(Grafics.TextCentered("PRESS ENTER", 68), 16);
+            Console.WriteLine("PRESS ENTER");
+
+            Console.ReadKey();
+        }
+
+        public static void AboutTheAuthor()
+        {
+            Grafics.BasicScreen("text");
+
+            Console.SetCursorPosition(Grafics.TextCentered("Об авторе", 68), 1);
+            Console.WriteLine("Об авторе");
+
+            Console.SetCursorPosition(Grafics.TextCentered("Никнейм в игре: GGammi", 68), 13);
+            Console.WriteLine("Никнейм в игре: GGammi");
+            Console.SetCursorPosition(Grafics.TextCentered("какой-то текст", 68), 14);
+            Console.WriteLine("какой-то текст");
+            Console.SetCursorPosition(Grafics.TextCentered("и еще немного текста", 68), 16);
+            Console.WriteLine("и еще немного текста");
+
+            Console.ReadKey();
         }
     }
 }

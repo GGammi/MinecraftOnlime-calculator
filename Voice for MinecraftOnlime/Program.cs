@@ -10,11 +10,12 @@ namespace Voice_for_MinecraftOnlime
     {
         static void Main(string[] args)
         {
-            //Balance.set = 140;
-            //Grafics.Logo();
-            //Grafics.TokensToDay();
+            Console.Title = "MC_ONLINE Culculator";
+            Console.SetWindowSize(68, 34);
+
             do
             {
+                Screen.StartScreen();
                 Screen.LanguageSelection();
                 Screen.EnteringNickname();
                 Screen.StatusSelection();

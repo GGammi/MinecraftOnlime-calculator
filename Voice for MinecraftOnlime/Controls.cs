@@ -88,7 +88,7 @@ namespace Voice_for_MinecraftOnlime
                             Screen.StatusSelection();
                             break;
                         case 17:
-                            // об авторе
+                            Screen.AboutTheAuthor();
                             break;
                         case 18:
                             back = false;

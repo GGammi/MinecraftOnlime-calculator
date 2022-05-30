@@ -10,7 +10,6 @@ namespace Voice_for_MinecraftOnlime
     {
         Grafics()
         {
-
         }
 
         static char[,] mas = new char[100, 100];
@@ -211,6 +210,17 @@ namespace Voice_for_MinecraftOnlime
                 Console.Write("вправо  →");
 
                 Console.SetCursorPosition(Grafics.TextCentered("ок  Enter", 21) + 45, 31);
+                Console.Write("ок  Enter");
+            }
+            else if (direction == "text")
+            {
+                //Console.SetCursorPosition(Grafics.TextCentered("влево  <", 21), 31);
+                //Console.Write("влево  ←");
+
+                //Console.SetCursorPosition(Grafics.TextCentered("вправо  >", 23) + 21, 31);
+                //Console.Write("вправо  →");
+
+                Console.SetCursorPosition(Grafics.TextCentered("ок  Enter", 23) + 21, 31);
                 Console.Write("ок  Enter");
             }
         }
