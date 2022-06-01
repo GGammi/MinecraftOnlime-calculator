@@ -22,7 +22,7 @@ namespace Voice_for_MinecraftOnlime
 
         public static string TokensToDay()
         {
-            return "Баланс на " + DateTime.Now + " равен: " + Balance.get + ' ' + Text.TokenRu(Balance.get);
+            return "Баланс на " + DateTime.Now.ToLongDateString() + " равен: " + Balance.get + ' ' + Text.TokenRu(Balance.get);
         }
         public static void Rectangle(int width, int height, int x = 0, int y = 0)
         {
@@ -220,8 +220,61 @@ namespace Voice_for_MinecraftOnlime
                 //Console.SetCursorPosition(Grafics.TextCentered("вправо  >", 23) + 21, 31);
                 //Console.Write("вправо  →");
 
+                Line(20, 15, 48, 15);
+                Line(20, 17, 48, 17);
+
                 Console.SetCursorPosition(Grafics.TextCentered("ок  Enter", 23) + 21, 31);
                 Console.Write("ок  Enter");
+            }
+        }
+
+        public static void DrawDays()
+        {
+            int days;
+            string str = null;
+            string[] words;
+            int x = 1;
+
+            DateTime date = new DateTime();
+
+
+            for (int i = Profile.stat_id + 1; i < 8; i++)
+            {
+                if (Balance.get < Text.Preis[i])
+                {
+                    if (Profile.stat_id == 0)
+                    {
+                        days = (Text.Preis[i] - Balance.get) / 2;
+                    }
+
+                    else
+                    {
+                        days = (Text.Preis[i] - Text.Preis[i - 1] - Balance.get) / 2;
+                    }
+                }
+                else days = 0;
+
+                date = DateTime.Now;
+
+                str = Convert.ToString(date.AddDays(days).ToShortDateString());
+
+                words = str.Split(new char[] { '.' });
+
+                for (int j = 0; j < 3; j++)
+                {
+                    if (j != 2)
+                    {
+                        Console.SetCursorPosition(14 + x * 7, 19 + j);
+                    }
+                    else
+                    {
+                        Console.SetCursorPosition(13 + x * 7, 19 + j);
+                    }
+
+                    Console.Write(words[j]);
+                }
+
+                x++;
             }
         }
     }

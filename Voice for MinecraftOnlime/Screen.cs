@@ -160,9 +160,18 @@ namespace Voice_for_MinecraftOnlime
             Grafics.DrawPreis(55, j++);
             Grafics.DrawPreis(62, j);
 
-            if (Balance.get > tokens)
+            Grafics.DrawDays();
+
+            if (Balance.get >= tokens)
             {
-                text = "Вы можете купить " + Text.status[Profile.stat_id + 1] + " Kit ";
+                if (Profile.stat_id != 8)
+                {
+                    text = "Вы можете купить " + Text.status[Profile.stat_id + 1] + " Kit ";
+                }
+                else
+                {
+                    text = "Поздравляю, у вас максимальный статус!";
+                }
             }
             else
             {
