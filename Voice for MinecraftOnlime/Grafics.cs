@@ -249,10 +249,14 @@ namespace Voice_for_MinecraftOnlime
 
                     else
                     {
-                        days = (Text.Preis[i] - Text.Preis[i - 1] - Balance.get) / 2;
+                        days = (Text.Preis[i] - Text.Preis[Profile.stat_id] - Balance.get) / 2;
+                    
                     }
                 }
-                else days = 0;
+                else
+                {
+                    days = 0;
+                }
 
                 date = DateTime.Now;
 
