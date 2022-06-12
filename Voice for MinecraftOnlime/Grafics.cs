@@ -192,22 +192,22 @@ namespace Voice_for_MinecraftOnlime
 
             if (direction == "vertically")
             {
-                Console.SetCursorPosition(Grafics.TextCentered("влево  <", 21), 31);
-                Console.Write("вверх ↑");
+                Console.SetCursorPosition(Grafics.TextCentered(Text.TextUp[Profile.lang_id] + " ↑", 21), 31);
+                Console.Write(Text.TextUp[Profile.lang_id] + " ↑");
 
-                Console.SetCursorPosition(Grafics.TextCentered("вправо  >", 23) + 21, 31);
-                Console.Write("вниз  ↓");
+                Console.SetCursorPosition(Grafics.TextCentered(Text.TextDown[Profile.lang_id] + " ↓", 23) + 21, 31);
+                Console.Write(Text.TextDown[Profile.lang_id] + " ↓");
 
                 Console.SetCursorPosition(Grafics.TextCentered("ок  Enter", 21) + 45, 31);
                 Console.Write("ок  Enter");
             }
             else if (direction == "horizontally")
             {
-                Console.SetCursorPosition(Grafics.TextCentered("влево  <", 21), 31);
-                Console.Write("влево  ←");
+                Console.SetCursorPosition(Grafics.TextCentered(Text.TextLeft[Profile.lang_id] + " ←", 21), 31);
+                Console.Write(Text.TextLeft[Profile.lang_id] + " ←");
 
-                Console.SetCursorPosition(Grafics.TextCentered("вправо  >", 23) + 21, 31);
-                Console.Write("вправо  →");
+                Console.SetCursorPosition(Grafics.TextCentered(Text.TextRight[Profile.lang_id] + " →", 23) + 21, 31);
+                Console.Write(Text.TextRight[Profile.lang_id] + " →");
 
                 Console.SetCursorPosition(Grafics.TextCentered("ок  Enter", 21) + 45, 31);
                 Console.Write("ок  Enter");

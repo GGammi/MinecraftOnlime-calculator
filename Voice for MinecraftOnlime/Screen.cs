@@ -16,7 +16,7 @@ namespace Voice_for_MinecraftOnlime
             Controls.cursor_position = 14;
 
             Grafics.BasicScreen();
-            do
+            do // меняет текст при выботе языка
             {
                 Console.SetCursorPosition(Grafics.TextCentered("                    ", 68), 1);
                 Console.Write("                    ");

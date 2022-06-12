@@ -144,5 +144,31 @@ namespace Voice_for_MinecraftOnlime
             "Сбросить все",
             "Назад"
         };
+
+        public static List<string> TextUp = new List<string>()
+        {
+            "Вверх",
+            "Up",
+            "Hoch"
+        };
+
+        public static List<string> TextDown = new List<string>()
+        {
+            "Вниз",
+            "Down",
+            "Nieder"
+        };
+        public static List<string> TextLeft = new List<string>()
+        {
+            "Влево",
+            "Left",
+            "Links"
+        };
+        public static List<string> TextRight = new List<string>()
+        {
+            "Вправо",
+            "Right",
+            "Rechts"
+        };
     }
 }
