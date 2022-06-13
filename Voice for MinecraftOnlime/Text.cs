@@ -105,6 +105,28 @@ namespace Voice_for_MinecraftOnlime
             }
             return "NONE";
         }
+        public static string DayEn(int number = 1)
+        {
+            if (number == 1)
+            {
+                return "day";
+            }
+            else
+            {
+                return "days";
+            }
+        }
+        public static string DayDe(int number = 1)
+        {
+            if (number == 1)
+            {
+                return "tag";
+            }
+            else
+            {
+                return "tage";
+            }
+        }
         public static string TokenRu(int number = 1)
         {
             if (number > 20 && number < 100) // 21 -99
@@ -232,6 +254,25 @@ namespace Voice_for_MinecraftOnlime
 
             return text;
         }
+        public static string DayLang(int number = 1)
+        {
+            string text = null;
+
+            switch (Profile.lang_id)
+            {
+                case 0:
+                    text = DayRu(number);
+                    break;
+                case 1:
+                    text = DayEn(number);
+                    break;
+                case 2:
+                    text = DayDe(number);
+                    break;
+            }
+
+            return text;
+        }
 
         public static List<string> AfterThePurchaseOf = new List<string>()
         {
@@ -245,6 +286,20 @@ namespace Voice_for_MinecraftOnlime
             "Вы преобрели максимальный статус!",
             "You have acquired the maximum status!",
             "Sie haben den maximalen Status erworben!"
+        };
+
+        public static List<string> UpdateStatus_c1 = new List<string>()
+        {
+            "До",
+            "Up to",
+            "Bis zum"
+        };
+
+        public static List<string> UpdateStatus_c2 = new List<string>()
+        {
+            "или же",
+            "or",
+            "der"
         };
     }
 }

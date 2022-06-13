@@ -200,7 +200,7 @@ namespace Voice_for_MinecraftOnlime
                 tokens = tokens - Balance.get;
                 days = (tokens + 2 - 1) / 2;
 
-                text = "До " + Text.status[Profile.stat_id + 1] + " Kit " + days + ' ' + Text.DayRu(days) + " или же " + tokens + ' ' + Text.TokenRu(tokens);
+                text = Text.UpdateStatus_c1[Profile.lang_id] + ' ' + Text.status[Profile.stat_id + 1] + " Kit " + days + ' ' + Text.DayLang(days) + ' ' + Text.UpdateStatus_c2[Profile.lang_id] + ' ' + tokens + ' ' + Text.TokenLang(tokens);
             }
             Console.SetCursorPosition(Grafics.TextCentered(text, 68), 24);
             Console.Write(text);
