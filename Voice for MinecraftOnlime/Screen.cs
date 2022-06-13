@@ -159,16 +159,16 @@ namespace Voice_for_MinecraftOnlime
             if (Profile.stat_id == 0)
             {
                 tokens = Text.Preis[Profile.stat_id + 1];
-                text = "После покупки " + Text.status[Profile.stat_id + 1] + " Kit " + '-' + tokens + ' ' + Text.TokenRu(tokens);
+                text = Text.AfterThePurchaseOf[Profile.lang_id] + ' ' + Text.status[Profile.stat_id + 1] + " Kit " + '-' + tokens + ' ' + Text.TokenLang(tokens);
             }
             else if (Profile.stat_id != 8)
             {
                 tokens = Text.Preis[Profile.stat_id + 1] - Text.Preis[Profile.stat_id];
-                text = "После покупки " + Text.status[Profile.stat_id + 1] + " Kit " + '-' + tokens + ' ' + Text.TokenRu(tokens);
+                text = Text.AfterThePurchaseOf[Profile.lang_id] + ' ' + Text.status[Profile.stat_id + 1] + " Kit " + '-' + tokens + ' ' + Text.TokenLang(tokens);
             }
             else
             {
-                text = "Вы преобрели максимальный статус!";
+                text = Text.MaximumStatus[Profile.lang_id];
             }
             Console.SetCursorPosition(Grafics.TextCentered(text, 50) + 19, 8);
             Console.Write(text);

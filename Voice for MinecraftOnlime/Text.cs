@@ -232,5 +232,19 @@ namespace Voice_for_MinecraftOnlime
 
             return text;
         }
+
+        public static List<string> AfterThePurchaseOf = new List<string>()
+        {
+            "После покупки",
+            "After the purchase of",
+            "Nach dem Kauf von"
+        };
+
+        public static List<string> MaximumStatus = new List<string>()
+        {
+            "Вы преобрели максимальный статус!",
+            "You have acquired the maximum status!",
+            "Sie haben den maximalen Status erworben!"
+        };
     }
 }
