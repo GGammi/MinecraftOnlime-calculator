@@ -82,7 +82,7 @@ namespace Voice_for_MinecraftOnlime
             {
                 number = int.Parse(number.ToString().Remove(0, 1));
             }
-            else if(number > 99 && number < 1000) // 100 - 999
+            else if (number > 99 && number < 1000) // 100 - 999
             {
                 number = int.Parse(number.ToString().Remove(0, 2));
             }
@@ -132,7 +132,23 @@ namespace Voice_for_MinecraftOnlime
             {
                 return "токенов";
             }
-            return "NONE";
+            return "токен";
+        }
+        public static string TokenEn(int number = 1)
+        {
+
+            if (number == 1)
+            {
+                return "token";
+            }
+            else
+            {
+                return "tokens";
+            }
+        }
+        public static string TokenDe()
+        {
+            return "token";
         }
 
         public static List<string> SettingsRu = new List<string>()
@@ -170,5 +186,51 @@ namespace Voice_for_MinecraftOnlime
             "Right",
             "Rechts"
         };
+        public static List<string> UpdateBalance = new List<string>()
+        {
+            "обновить баланс",
+            "update balance",
+            "balance aktualisieren"
+        };
+        public static List<string> Settings = new List<string>()
+        {
+            "настройки",
+            "settings",
+            "einstellung"
+        };
+
+        public static List<string> TheBalanceIsEqualTo_c1 = new List<string>()
+        {
+            "Баланс на",
+            "The balance as of",
+            "Die Bilanz für den"
+        };
+
+        public static List<string> TheBalanceIsEqualTo_c2 = new List<string>()
+        {
+            "равен",
+            "is equal to",
+            "lautet"
+        };
+
+        public static string TokenLang(int number = 1)
+        {
+            string text = null;
+
+            switch (Profile.lang_id)
+            {
+                case 0:
+                    text = TokenRu(number);
+                    break;
+                case 1:
+                    text = TokenEn(number);
+                    break;
+                case 2:
+                    text = TokenDe();
+                    break;
+            }
+
+            return text;
+        }
     }
 }

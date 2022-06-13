@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Voice_for_MinecraftOnlime
 {
@@ -20,10 +17,6 @@ namespace Voice_for_MinecraftOnlime
             Console.WriteLine(' ');
         }
 
-        public static string TokensToDay()
-        {
-            return "Баланс на " + DateTime.Now.ToLongDateString() + " равен: " + Balance.get + ' ' + Text.TokenRu(Balance.get);
-        }
         public static void Rectangle(int width, int height, int x = 0, int y = 0)
         {
             Console.SetCursorPosition(x, y);

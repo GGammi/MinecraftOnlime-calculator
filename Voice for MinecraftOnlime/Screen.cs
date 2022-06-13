@@ -24,6 +24,26 @@ namespace Voice_for_MinecraftOnlime
                 Console.SetCursorPosition(Grafics.TextCentered(Controls.cursor_position - 14, Text.language_selection, 68), 1);
                 Console.WriteLine(Text.language_selection[Controls.cursor_position - 14]);
 
+                List<int> XCor = new List<int> // ниже идет костыль
+                {
+                    0, 21, 45
+                };
+
+                for (int i = 0; i < 3; i++)
+                {
+                    Console.SetCursorPosition(Grafics.TextCentered("            ", 21) + XCor[i], 31);
+                    Console.Write("            ");
+                }
+
+                Console.SetCursorPosition(Grafics.TextCentered(Text.TextUp[Controls.cursor_position - 14] + " ↑", 21), 31);
+                Console.Write(Text.TextUp[Controls.cursor_position - 14] + " ↑");
+
+                Console.SetCursorPosition(Grafics.TextCentered(Text.TextDown[Controls.cursor_position - 14] + " ↓", 23) + 21, 31);
+                Console.Write(Text.TextDown[Controls.cursor_position - 14] + " ↓");
+
+                Console.SetCursorPosition(Grafics.TextCentered("ок  Enter", 21) + 45, 31);
+                Console.Write("ок  Enter");
+
                 Grafics.SelectItem(14, 16, Text.language, "vertically", 29);
             } while (Controls.control(14, 16));
         }
@@ -97,9 +117,11 @@ namespace Voice_for_MinecraftOnlime
 
             text = Text.greeting[Profile.lang_id] + ", " + Profile.nickname + '!';
             Console.SetCursorPosition(Grafics.TextCentered(text, 68), 1);
-            Console.WriteLine(text);
-            Console.SetCursorPosition(Grafics.TextCentered(Grafics.TokensToDay(), 68), 4);
-            Console.WriteLine(Grafics.TokensToDay());
+            Console.Write(text);
+
+            text = Text.TheBalanceIsEqualTo_c1[Profile.lang_id] + ' ' + DateTime.Now.ToLongDateString() + ' ' + Text.TheBalanceIsEqualTo_c2[Profile.lang_id] + ": " + Balance.get + ' ' + Text.TokenLang(Balance.get);
+            Console.SetCursorPosition(Grafics.TextCentered(text, 68), 4);
+            Console.Write(text);
 
             Grafics.Line(0, 7, 67, 7);
             Grafics.Line(0, 22, 67, 22);
@@ -184,10 +206,10 @@ namespace Voice_for_MinecraftOnlime
             Console.Write(text);
 
             Console.SetCursorPosition(9, 28);
-            Console.Write("обновить баланс");
+            Console.Write(Text.UpdateBalance[Profile.lang_id]);
 
             Console.SetCursorPosition(49, 28);
-            Console.Write("настройки");
+            Console.Write(Text.Settings[Profile.lang_id]);
 
             do
             {
