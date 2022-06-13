@@ -301,5 +301,19 @@ namespace Voice_for_MinecraftOnlime
             "or",
             "der"
         };
+
+        public static List<string> CongratulationText = new List<string>()
+        {
+            "Поздравляю, у вас максимальный статус!",
+            "Congratulations, you have the maximum status!",
+            "Herzlichen Glückwunsch, Sie haben den maximalen Status!"
+        };
+
+        public static List<string> YouCanBuy = new List<string>()
+        {
+            "Вы можете купить",
+            "You can buy",
+            "Sie können"
+        };
     }
 }

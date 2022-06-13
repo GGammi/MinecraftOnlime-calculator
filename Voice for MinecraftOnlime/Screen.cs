@@ -188,11 +188,18 @@ namespace Voice_for_MinecraftOnlime
             {
                 if (Profile.stat_id != 8)
                 {
-                    text = "Вы можете купить " + Text.status[Profile.stat_id + 1] + " Kit ";
+                    if (Profile.lang_id != 2)
+                    {
+                        text = Text.YouCanBuy[Profile.lang_id] + ' ' + Text.status[Profile.stat_id + 1] + " Kit";
+                    }
+                    else
+                    {
+                        text = Text.YouCanBuy[Profile.lang_id] + ' ' + Text.status[Profile.stat_id + 1] + " Kit " + "kaufen";
+                    }
                 }
                 else
                 {
-                    text = "Поздравляю, у вас максимальный статус!";
+                    text = Text.CongratulationText[Profile.lang_id];
                 }
             }
             else
