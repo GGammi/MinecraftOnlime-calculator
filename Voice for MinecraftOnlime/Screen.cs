@@ -188,11 +188,11 @@ namespace Voice_for_MinecraftOnlime
             {
                 if (Profile.stat_id != 8)
                 {
-                    if (Profile.lang_id != 2)
+                    if (Profile.lang_id < 2) // русский и английский вариант текста
                     {
                         text = Text.YouCanBuy[Profile.lang_id] + ' ' + Text.status[Profile.stat_id + 1] + " Kit";
                     }
-                    else
+                    else if (Profile.lang_id == 2) // немецкий вариант текста
                     {
                         text = Text.YouCanBuy[Profile.lang_id] + ' ' + Text.status[Profile.stat_id + 1] + " Kit " + "kaufen";
                     }
@@ -236,12 +236,14 @@ namespace Voice_for_MinecraftOnlime
             Grafics.Rectangle(68, 27, 0, 3);
             Grafics.BasicScreen();
 
-            Console.SetCursorPosition(Grafics.TextCentered("Настройки", 68), 1);
-            Console.Write("Настройки");
+            Text.AddSettingsLanguage();
+
+            Console.SetCursorPosition(Grafics.TextCentered(Text.Settings[Profile.lang_id], 68), 1);
+            Console.Write(Text.Settings[Profile.lang_id]);
 
             do
             {
-                Grafics.SelectItem(14, 19, Text.SettingsRu, "vertically", 30);
+                Grafics.SelectItem(14, 19, Text.SettingsLang[Profile.lang_id], "vertically", 30);
             } while (Controls.control(14, 19));
         }
 
@@ -266,15 +268,17 @@ namespace Voice_for_MinecraftOnlime
         {
             Grafics.BasicScreen("text");
 
-            Console.SetCursorPosition(Grafics.TextCentered("Об авторе", 68), 1);
-            Console.WriteLine("Об авторе");
+            Console.SetCursorPosition(Grafics.TextCentered(Text.AboutTheAuthorText[Profile.lang_id], 68), 1);
+            Console.WriteLine(Text.AboutTheAuthorText[Profile.lang_id]);
 
-            Console.SetCursorPosition(Grafics.TextCentered("Никнейм в игре: GGammi", 68), 13);
-            Console.WriteLine("Никнейм в игре: GGammi");
-            Console.SetCursorPosition(Grafics.TextCentered("какой-то текст", 68), 14);
-            Console.WriteLine("какой-то текст");
-            Console.SetCursorPosition(Grafics.TextCentered("и еще немного текста", 68), 16);
-            Console.WriteLine("и еще немного текста");
+            Console.SetCursorPosition(Grafics.TextCentered(Text.NicknameInTheGame[Profile.lang_id] + " : GrGammi", 68), 13);
+            Console.WriteLine(Text.NicknameInTheGame[Profile.lang_id] + ": GrGammi");
+            Console.SetCursorPosition(Grafics.TextCentered("Discord: GruffiGummi#3618", 68), 14);
+            Console.WriteLine("Discord: GruffiGummi#3618");
+            Console.SetCursorPosition(Grafics.TextCentered(Text.ContactEmail[Profile.lang_id] + " : and_km@vk.com", 68), 16);
+            Console.WriteLine(Text.ContactEmail[Profile.lang_id] + ": and_km@vk.com");
+            Console.SetCursorPosition(Grafics.TextCentered("=^-^=", 68), 18);
+            Console.WriteLine("=^-^=");
 
             Console.ReadKey();
         }

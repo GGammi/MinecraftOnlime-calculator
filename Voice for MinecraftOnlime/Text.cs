@@ -173,16 +173,6 @@ namespace Voice_for_MinecraftOnlime
             return "token";
         }
 
-        public static List<string> SettingsRu = new List<string>()
-        {
-            "Язык",
-            "Ник",
-            "Статус",
-            "Об авторе",
-            "Сбросить все",
-            "Назад"
-        };
-
         public static List<string> TextUp = new List<string>()
         {
             "Вверх",
@@ -314,6 +304,59 @@ namespace Voice_for_MinecraftOnlime
             "Вы можете купить",
             "You can buy",
             "Sie können"
+        };
+
+        public static List<List<string>> SettingsLang = new List<List<string>>();
+        public static void AddSettingsLanguage()
+        {
+            SettingsLang.Add(new List<string>
+            {
+                "Язык",
+                "Ник",
+                "Статус",
+                "Об авторе",
+                "Сбросить все",
+                "Назад"
+            });
+            SettingsLang.Add(new List<string>
+            {
+                "Language",
+                "Nick",
+                "Status",
+                "About the author",
+                "Reset everything",
+                "Back"
+            });
+            SettingsLang.Add(new List<string>
+            {
+                "Sprache",
+                "Nick",
+                "Status",
+                "Über den Autor",
+                "Alles zurücksetzen",
+                "Zurück"
+            });
+        }
+
+        public static List<string> AboutTheAuthorText = new List<string>()
+        {
+            "Об авторе",
+            "About the author",
+            "Über den Autor"
+        };
+
+        public static List<string> NicknameInTheGame = new List<string>()
+        {
+            "Никнейм в игре",
+            "Nickname in the game",
+            "Nickname im Spiel"
+        };
+
+        public static List<string> ContactEmail = new List<string>()
+        {
+            "Почта для связи",
+            "Contact email",
+            "Mail für Kommunikation"
         };
     }
 }
