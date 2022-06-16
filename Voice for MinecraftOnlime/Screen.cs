@@ -98,6 +98,7 @@ namespace Voice_for_MinecraftOnlime
         public static void MainScreen()
         {
             Console.Clear();
+            Grafics.ClearingTheArray();
 
             string text;
             int tokens = 0;
@@ -266,6 +267,8 @@ namespace Voice_for_MinecraftOnlime
 
         public static void AboutTheAuthor()
         {
+            Grafics.ClearingTheArray();
+
             Grafics.BasicScreen("text");
 
             Console.SetCursorPosition(Grafics.TextCentered(Text.AboutTheAuthorText[Profile.lang_id], 68), 1);
