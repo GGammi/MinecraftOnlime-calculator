@@ -15,11 +15,16 @@ namespace Voice_for_MinecraftOnlime
 
             do
             {
+
                 Screen.StartScreen();
-                Screen.LanguageSelection();
-                Screen.EnteringNickname();
-                Screen.StatusSelection();
-                Screen.EnteringBalance();
+
+                if (Profile.manager.GetPrivateString("Profile", "saving_settings") == "false")
+                {
+                    Screen.LanguageSelection();
+                    Screen.EnteringNickname();
+                    Screen.StatusSelection();
+                    Screen.EnteringBalance();
+                }
                 do
                 {
                     Screen.MainScreen();

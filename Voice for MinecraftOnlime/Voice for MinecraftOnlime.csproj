@@ -34,7 +34,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +48,7 @@
     <Compile Include="Balance.cs" />
     <Compile Include="Controls.cs" />
     <Compile Include="Grafics.cs" />
+    <Compile Include="INIManager.cs" />
     <Compile Include="Profile.cs" />
     <Compile Include="Screen.cs" />
     <Compile Include="Program.cs" />

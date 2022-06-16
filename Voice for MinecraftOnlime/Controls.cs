@@ -93,6 +93,7 @@ namespace Voice_for_MinecraftOnlime
                         case 18:
                             back = false;
                             reset = false;
+                            Profile.manager.WritePrivateString("Profile", "saving_settings", "false");
                             break;
                         case 19:
                             back = false;

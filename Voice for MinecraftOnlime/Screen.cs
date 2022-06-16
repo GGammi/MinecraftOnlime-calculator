@@ -119,6 +119,8 @@ namespace Voice_for_MinecraftOnlime
             Console.Clear();
             Grafics.ClearingTheArray();
 
+            Profile.SavingSettings();
+
             string text;
             int tokens = 0;
             int j = Profile.stat_id;
@@ -269,6 +271,8 @@ namespace Voice_for_MinecraftOnlime
 
         public static void StartScreen()
         {
+            Grafics.ClearingTheArray();
+
             Grafics.BasicScreen("text");
 
             Console.SetCursorPosition(Grafics.TextCentered("MCONLINE", 68), 1);
@@ -280,6 +284,11 @@ namespace Voice_for_MinecraftOnlime
             Console.WriteLine("calculator");
             Console.SetCursorPosition(Grafics.TextCentered("PRESS ENTER", 68), 16);
             Console.WriteLine("PRESS ENTER");
+
+            if (Profile.manager.GetPrivateString("Profile", "saving_settings") == "true")
+            {
+                Profile.LoadingSettings();
+            }
 
             Console.ReadKey();
         }
