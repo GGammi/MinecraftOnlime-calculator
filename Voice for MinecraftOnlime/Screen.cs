@@ -50,7 +50,10 @@ namespace Voice_for_MinecraftOnlime
 
         public static void EnteringNickname()
         {
+            string nickname = null;
+
             Console.Clear();
+            Grafics.ClearingTheArray();
 
             Controls.screen_key = 2;
 
@@ -60,7 +63,13 @@ namespace Voice_for_MinecraftOnlime
             Console.WriteLine(Text.entering_nickname[Profile.lang_id]);
 
             Console.SetCursorPosition(30, 16);
-            Profile.nickname = Console.ReadLine();
+            nickname = Console.ReadLine();
+            Profile.nickname = nickname?.Replace(" ", null);
+
+            if (Profile.nickname == "")
+            {
+                Profile.nickname = "Player";
+            }
         }
 
         public static void StatusSelection()
@@ -74,6 +83,7 @@ namespace Voice_for_MinecraftOnlime
 
             Console.SetCursorPosition(Grafics.TextCentered(Profile.lang_id, Text.status_selection, 68), 1);
             Console.WriteLine(Text.status_selection[Profile.lang_id]);
+
             do
             {
                 Grafics.SelectItem(12, 20, Text.status, "vertically", 29);
@@ -83,6 +93,7 @@ namespace Voice_for_MinecraftOnlime
         public static void EnteringBalance()
         {
             Console.Clear();
+            Grafics.ClearingTheArray();
 
             Controls.screen_key = 4;
 
@@ -92,7 +103,15 @@ namespace Voice_for_MinecraftOnlime
             Console.WriteLine(Text.entering_balance[Profile.lang_id]);
 
             Console.SetCursorPosition(30, 16);
-            Balance.set = Convert.ToInt32(Console.ReadLine());
+
+            try
+            {
+                Balance.set = Convert.ToInt32(Console.ReadLine());
+            }
+            catch
+            {
+                Balance.set = 0;
+            }
         }
 
         public static void MainScreen()
@@ -232,7 +251,7 @@ namespace Voice_for_MinecraftOnlime
             Controls.screen_key = 6;
 
             Controls.cursor_position = 16;
-            
+
             Grafics.Rectangle(68, 3);
             Grafics.Rectangle(68, 27, 0, 3);
             Grafics.BasicScreen();
