@@ -49,6 +49,7 @@
     <Compile Include="Controls.cs" />
     <Compile Include="Grafics.cs" />
     <Compile Include="INIManager.cs" />
+    <Compile Include="MCOnlineCulculator.cs" />
     <Compile Include="Profile.cs" />
     <Compile Include="Screen.cs" />
     <Compile Include="Program.cs" />

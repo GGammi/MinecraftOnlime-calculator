@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Voice_for_MinecraftOnlime
 {
@@ -102,7 +99,7 @@ namespace Voice_for_MinecraftOnlime
             Console.SetCursorPosition(Grafics.TextCentered(Profile.lang_id, Text.entering_balance, 68), 1);
             Console.WriteLine(Text.entering_balance[Profile.lang_id]);
 
-            Console.SetCursorPosition(30, 16);
+            Console.SetCursorPosition(33, 16);
 
             try
             {

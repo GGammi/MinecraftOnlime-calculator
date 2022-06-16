@@ -5,10 +5,6 @@ namespace Voice_for_MinecraftOnlime
 {
     class Grafics
     {
-        Grafics()
-        {
-        }
-
         static char[,] mas = new char[100, 100];
 
         public static void Logo()
